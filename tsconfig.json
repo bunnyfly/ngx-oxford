@@ -17,7 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ngx-oxford": [
+        "dist/ngx-oxford"
+      ],
+      "ngx-oxford/*": [
+        "dist/ngx-oxford/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
