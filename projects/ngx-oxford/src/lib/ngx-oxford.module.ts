@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
-import { NgxOxfordComponent } from './ngx-oxford.component';
+import { NgxOxfordPipe } from './ngx-oxford.pipe';
 
 @NgModule({
-  declarations: [NgxOxfordComponent],
+  declarations: [NgxOxfordPipe],
   imports: [],
-  exports: [NgxOxfordComponent],
+  exports: [NgxOxfordPipe],
 })
 export class NgxOxfordModule {}

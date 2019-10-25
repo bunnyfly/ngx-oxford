@@ -2,4 +2,11 @@
 
 <p>Check it out!</p>
 
-<oxford></oxford>
+<h2>Pipe</h2>
+Use:
+<pre>list | oxford:'and'</pre>
+
+Output:
+<ng-container *ngFor="let list of lists">
+  <pre>{{ list.length }} item(s): "{{ list | oxford:'and' }}"</pre>
+</ng-container>

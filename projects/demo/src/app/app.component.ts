@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'demo';
+
+  lists = [
+    [],
+    ['rabbit'],
+    ['rabbit', 'cat'],
+    ['rabbit', 'cat', 'dog'],
+    ['rabbit', 'cat', 'dog', 'panda'],
+  ];
 }
