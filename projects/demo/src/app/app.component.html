@@ -4,9 +4,31 @@
 
 <h2>Pipe</h2>
 Use:
-<pre>list | oxford:'and'</pre>
+<pre>
+"{{ '{{' }} list | oxford:'and' }}"
+</pre>
 
 Output:
-<ng-container *ngFor="let list of lists">
-  <pre>{{ list.length }} item(s): "{{ list | oxford:'and' }}"</pre>
-</ng-container>
+<ul>
+  <li *ngFor="let list of lists">{{ list.length }}: "{{ list | oxford:'and' }}"</li>
+</ul>
+
+<h2>Component</h2>
+Use:
+<pre>
+"&lt;ng-container *ngFor="let x of list; let i = index"&gt;
+  &lt;a [href]="'https://www.google.com/search?q=' + x"&gt;{{ '{{' }} x }}&lt;/a&gt;
+  &lt;oxford [index]="i" [length]="list.length"&gt;or&lt;/oxford&gt;
+&lt;/ng-container&gt;"
+</pre>
+
+Output:
+<ul>
+  <li *ngFor="let list of lists">
+    {{ list.length }}:
+    "<ng-container *ngFor="let x of list; let i = index">
+      <a [href]="'https://www.google.com/search?q=' + x">{{ x }}</a>
+      <oxford [index]="i" [length]="list.length">or</oxford>
+    </ng-container>"
+  </li>
+</ul>
