@@ -24,7 +24,7 @@ describe('NgxOxfordComponent', () => {
       template =
         '"<ng-container *ngFor="let item of items; let i = index">' +
         '{{ item }}' +
-        '<oxford [index]="i" [length]="items.length">and</oxford>' +
+        '<ngx-oxford [index]="i" [length]="items.length">and</ngx-oxford>' +
         '</ng-container>"';
     }));
 
@@ -58,7 +58,7 @@ describe('NgxOxfordComponent', () => {
     beforeEach(fakeAsync(() => {
       template = `"<ng-container *ngFor="let item of items; let i = index">
             <a [href]="'https://' + item + '.com'">{{ item }}</a>
-            <oxford [index]="i" [length]="items.length">and</oxford>
+            <ngx-oxford [index]="i" [length]="items.length">and</ngx-oxford>
           </ng-container>"`;
     }));
 
@@ -99,8 +99,8 @@ describe('NgxOxfordComponent', () => {
   }); // describe('template with spacing', () => {
 });
 
-function initialize(template: string, items: any[]) {
-  TestBed.overrideTemplateUsingTestingModule(TestComponent, template);
+function initialize(templateString: string, items: any[]) {
+  TestBed.overrideTemplateUsingTestingModule(TestComponent, templateString);
   TestBed.compileComponents();
   fixture = TestBed.createComponent(TestComponent);
   component = fixture.componentInstance;

@@ -18,7 +18,7 @@ Use:
 <pre>
 "&lt;ng-container *ngFor="let x of list; let i = index"&gt;
   &lt;a [href]="'https://www.google.com/search?q=' + x"&gt;{{ '{{' }} x }}&lt;/a&gt;
-  &lt;oxford [index]="i" [length]="list.length"&gt;or&lt;/oxford&gt;
+  &lt;ngx-oxford [index]="i" [length]="list.length"&gt;or&lt;/ngx-oxford&gt;
 &lt;/ng-container&gt;"
 </pre>
 
@@ -28,7 +28,7 @@ Output:
     {{ list.length }}:
     "<ng-container *ngFor="let x of list; let i = index">
       <a [href]="'https://www.google.com/search?q=' + x">{{ x }}</a>
-      <oxford [index]="i" [length]="list.length">or</oxford>
+      <ngx-oxford [index]="i" [length]="list.length">or</ngx-oxford>
     </ng-container>"
   </li>
 </ul>
