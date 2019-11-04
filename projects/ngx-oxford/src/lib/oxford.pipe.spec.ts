@@ -1,10 +1,10 @@
-import { NgxOxfordPipe } from './ngx-oxford.pipe';
+import { OxfordPipe } from './oxford.pipe';
 
 let pipe;
 
-describe('NgxOxfordPipe', () => {
+describe('OxfordPipe', () => {
   beforeEach(() => {
-    pipe = new NgxOxfordPipe();
+    pipe = new OxfordPipe();
   });
 
   it('should work with lists of 0 items', () => {

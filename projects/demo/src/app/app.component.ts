@@ -13,6 +13,6 @@ export class AppComponent {
     ['rabbit'],
     ['rabbit', 'cat'],
     ['rabbit', 'cat', 'dog'],
-    ['rabbit', 'cat', 'dog', 'panda'],
+    ['rabbit', 'cat', 'dog', 'duck'],
   ];
 }

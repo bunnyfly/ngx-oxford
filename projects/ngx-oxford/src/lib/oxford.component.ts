@@ -2,10 +2,10 @@ import { Input, Component, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'ngx-oxford',
-  styleUrls: ['./ngx-oxford.component.scss'],
-  templateUrl: './ngx-oxford.component.html',
+  styleUrls: ['./oxford.component.scss'],
+  templateUrl: './oxford.component.html',
 })
-export class NgxOxfordComponent implements OnChanges {
+export class OxfordComponent implements OnChanges {
   @Input() index: number;
   @Input() length: number;
 

@@ -1,12 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { NgxOxfordModule } from 'ngx-oxford';
+import { OxfordModule } from 'ngx-oxford';
 
 import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, NgxOxfordModule],
+  imports: [BrowserModule, OxfordModule],
   providers: [],
   bootstrap: [AppComponent],
 })

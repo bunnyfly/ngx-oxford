@@ -1,25 +1,53 @@
-# ngx-oxford
+# Oxford
 
-ngx-oxford takes the busy-work out of dealing with rendering comma-separated lists in
-[Angular](https://angular.io/).
+Oxford handles comma-separated lists in [Angular](https://angular.io/) for you.
 
-You can use ngx-oxford as a pipe or component, and there are plenty of options.
+You can use Oxford as a pipe or component. You won't need to worry about 1 vs 2 vs 3+ item lists,
+getting spacing right, etc.
 
-## Demo
+For example, we can render these lists:
 
-Run `ng serve demo` and navigate to `http://localhost:4200/`. The app will automatically reload if
-you change any of the source files.
+    []
+    ['bunny']
+    ['bunny', 'cat']
+    ['bunny', 'cat', 'dog']
 
-## Code scaffolding
+Like this:
 
-Run `ng generate component component-name` to generate a new component. You can also use
-`ng generate directive|pipe|service|class|guard|interface|enum|module`.
+    ""
+    "bunny"
+    "bunny and cat"
+    "bunny, cat, and dog"
 
-## Build
+## Install it
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-Use the `--prod` flag for a production build.
+    npm i ngx-oxford
 
-## Running unit tests
+Then include the OxfordModule in your module:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+    import { OxfordModule } from 'ngx-oxford';
+
+    @NgModule({
+      ...
+      imports: [
+        OxfordModule,
+      ],
+      ...
+    })
+
+## Use it
+
+### As a pipe
+
+For simple text lists:
+
+    "{{ list | oxford:'and' }}"
+
+### As a component
+
+Use it as a component enables style and HTML (e.g. links):
+
+    "<ng-container *ngFor="let x of list; let i = index">
+      <a [href]="'https://www.google.com/search?q=' + x">{{ '{{' }} x }}</a>
+      <ngx-oxford [index]="i" [length]="list.length">or</ngx-oxford>
+    </ng-container>"

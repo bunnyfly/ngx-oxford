@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { fakeAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NgxOxfordComponent } from './ngx-oxford.component';
+import { OxfordComponent } from './oxford.component';
 
 @Component({ template: '' })
 class TestComponent {
@@ -12,10 +12,10 @@ let component: TestComponent;
 let fixture: ComponentFixture<TestComponent>;
 let template: string;
 
-describe('NgxOxfordComponent', () => {
+describe('OxfordComponent', () => {
   beforeEach(fakeAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [NgxOxfordComponent, TestComponent],
+      declarations: [OxfordComponent, TestComponent],
     });
   }));
 
