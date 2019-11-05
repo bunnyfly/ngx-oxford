@@ -1,6 +1,6 @@
 {
   "name": "ngx-oxford",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "license": "SEE LICENSE IN LICENSE",
   "description": "Oxford commas for Angular without the hassle or hubbub!",
   "repository": {
