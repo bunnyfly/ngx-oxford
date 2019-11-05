@@ -2,12 +2,11 @@
 
 ## Comma separated lists without the hassle or hubbub!
 
-Oxford handles rendering comma-separated lists in [Angular](https://angular.io/) templates for you.
+Oxford renders comma-separated lists in [Angular](https://angular.io/) templates for you. Just give
+it a list of items and a conjunction (e.g. 'and', 'or', 'nor', 'and/or', etc).
 
 Use it as a pipe or component, and stop worrying about how many items you have, getting spacing
-right, etc.
-
-For example, using 'and' as the conjunction:
+right, etc. For example:
 
 ```
 []                       ⇢  ""
@@ -16,13 +15,15 @@ For example, using 'and' as the conjunction:
 ['bunny', 'cat', 'dog']  ⇢  "bunny, cat, and dog"
 ```
 
-## Get started
+## Install it
+
+Install [ngx-oxford](https://www.npmjs.com/package/ngx-oxford) from npm:
 
 ```shell
 npm i -s ngx-oxford
 ```
 
-Then include the OxfordModule in your module:
+Then add OxfordModule to your imports:
 
 ```ts
 import { OxfordModule } from 'ngx-oxford';
@@ -37,8 +38,6 @@ import { OxfordModule } from 'ngx-oxford';
 ```
 
 ## Use it
-
-You need to provide a conjunction ('and', 'or', 'nor', 'and/or', etc).
 
 ### ...as a pipe
 
@@ -58,3 +57,7 @@ For HTML, links, style, etc:
   <ngx-oxford [index]="i" [length]="list.length">or</ngx-oxford> </ng-container
 >"
 ```
+
+## Future
+
+- Get it working as an structural directive. E.g. `*ngFor="let x of list; oxford: 'and'"`. Help?
