@@ -1,53 +1,60 @@
 # Oxford
 
-Oxford handles comma-separated lists in [Angular](https://angular.io/) for you.
+## Comma separated lists without the hassle or hubbub!
 
-You can use Oxford as a pipe or component. You won't need to worry about 1 vs 2 vs 3+ item lists,
-getting spacing right, etc.
+Oxford handles rendering comma-separated lists in [Angular](https://angular.io/) templates for you.
 
-For example, we can render these lists:
+Use it as a pipe or component, and stop worrying about how many items you have, getting spacing
+right, etc.
 
-    []
-    ['bunny']
-    ['bunny', 'cat']
-    ['bunny', 'cat', 'dog']
+For example, using 'and' as the conjunction:
 
-Like this:
+```
+[]                       ⇢  ""
+['bunny']                ⇢  "bunny"
+['bunny', 'cat']         ⇢  "bunny and cat"
+['bunny', 'cat', 'dog']  ⇢  "bunny, cat, and dog"
+```
 
-    ""
-    "bunny"
-    "bunny and cat"
-    "bunny, cat, and dog"
+## Get started
 
-## Install it
-
-    npm i ngx-oxford
+```shell
+npm i -s ngx-oxford
+```
 
 Then include the OxfordModule in your module:
 
-    import { OxfordModule } from 'ngx-oxford';
+```ts
+import { OxfordModule } from 'ngx-oxford';
 
-    @NgModule({
-      ...
-      imports: [
-        OxfordModule,
-      ],
-      ...
-    })
+@NgModule({
+  ...
+  imports: [
+    OxfordModule,
+  ],
+  ...
+})
+```
 
 ## Use it
 
-### As a pipe
+You need to provide a conjunction ('and', 'or', 'nor', 'and/or', etc).
+
+### ...as a pipe
 
 For simple text lists:
 
-    "{{ list | oxford:'and' }}"
+```html
+"{{ list | oxford:'and' }}"
+```
 
-### As a component
+### ...as a component
 
-Use it as a component enables style and HTML (e.g. links):
+For HTML, links, style, etc:
 
-    "<ng-container *ngFor="let x of list; let i = index">
-      <a [href]="'https://www.google.com/search?q=' + x">{{ '{{' }} x }}</a>
-      <ngx-oxford [index]="i" [length]="list.length">or</ngx-oxford>
-    </ng-container>"
+```html
+"<ng-container *ngFor="let x of list; let i = index">
+  <a [href]="'https://www.google.com/search?q=' + x">{{ '{{' }} x }}</a>
+  <ngx-oxford [index]="i" [length]="list.length">or</ngx-oxford> </ng-container
+>"
+```
