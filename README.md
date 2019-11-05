@@ -3,10 +3,10 @@
 ## Comma separated lists without the hassle or hubbub!
 
 Oxford renders comma-separated lists in [Angular](https://angular.io/) templates for you. Just give
-it a list of items and a conjunction (e.g. 'and', 'or', 'nor', 'and/or', etc).
+it a list of items and a conjunction (and, or, nor, and/or, etc).
 
-Use it as a pipe or component, and stop worrying about how many items you have, getting spacing
-right, etc. For example:
+Use it as a pipe or component, and stop worrying about getting the spacing and commas right for
+every possibility, etc. For example:
 
 ```
 []                       ⇢  ""
@@ -23,7 +23,7 @@ Install [ngx-oxford](https://www.npmjs.com/package/ngx-oxford) from npm:
 npm i -s ngx-oxford
 ```
 
-Then add OxfordModule to your imports:
+Then add `OxfordModule` to your imports:
 
 ```ts
 import { OxfordModule } from 'ngx-oxford';
@@ -53,11 +53,12 @@ For HTML, links, style, etc:
 
 ```html
 "<ng-container *ngFor="let x of list; let i = index">
-  <a [href]="'https://www.google.com/search?q=' + x">{{ '{{' }} x }}</a>
-  <ngx-oxford [index]="i" [length]="list.length">or</ngx-oxford> </ng-container
->"
+  <a [href]="'https://www.google.com/search?q=' + x">{{ x }}</a>
+  <ngx-oxford [index]="i" [length]="list.length">or</ngx-oxford>
+</ng-container>"
 ```
 
 ## Future
 
-- Get it working as an structural directive. E.g. `*ngFor="let x of list; oxford: 'and'"`. Help?
+- Get it working as a structural directive. E.g. `*ngFor="let x of list; oxford: 'and'"`. Help?
+- An "etc" or ellipsis option to truncate the list if too many items. E.g.: "bunny, cat, dog, etc."
