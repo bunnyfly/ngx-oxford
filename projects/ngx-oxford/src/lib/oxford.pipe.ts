@@ -8,7 +8,7 @@ export class OxfordPipe implements PipeTransform {
     return ('' + value).trim();
   }
 
-  transform(values: string[], conjunction = 'and', max = Infinity, ...args: any[]): any {
+  transform(values: string[], conjunction = 'and', ...args: any[]): any {
     if (values === null || values === undefined) {
       throw new TypeError(`Wrong value for Oxford Pipe provided: ${values} is not an array`);
     }
