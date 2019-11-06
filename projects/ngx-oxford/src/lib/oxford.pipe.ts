@@ -8,12 +8,13 @@ export class OxfordPipe implements PipeTransform {
     return ('' + value).trim();
   }
 
-  transform(values: any, conjunction: string, ...args: any[]): any {
-    if (!Array.isArray(values)) {
-      throw Error(`Invalid pipe content is not array: '${values}' for pipe OxfordPipe`);
+  transform(values: string[], conjunction = 'and', max = Infinity, ...args: any[]): any {
+    if (values === null || values === undefined) {
+      throw new TypeError(`Wrong value for Oxford Pipe provided: ${values} is not an array`);
     }
-    if (typeof conjunction !== 'string' || !conjunction) {
-      throw Error(`Invalid pipe argument conjunction: '${conjunction}' for pipe OxfordPipe`);
+
+    if (conjunction === null || conjunction === '') {
+      throw new TypeError(`Wrong conjunction for Oxford Pipe provided: ${conjunction} is not a word`);
     }
 
     const trimmedValues = values.map(OxfordPipe.trim);
