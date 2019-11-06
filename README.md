@@ -62,3 +62,16 @@ For HTML, links, style, etc:
 
 - Get it working as a structural directive. E.g. `*ngFor="let x of list; oxford: 'and'"`. Help?
 - An "etc" or ellipsis option to truncate the list if too many items. E.g.: "bunny, cat, dog, etc."
+
+## Developer setup
+
+```shell
+git clone https://github.com/bunnyfly/ngx-oxford.git
+cd ngx-oxford
+npm i
+ng build ngx-oxford
+ng serve demo
+```
+
+For edit-refresh of the demo while working on the lib, run `ng build ngx-oxford --watch` in the
+background while running `ng serve demo`.
