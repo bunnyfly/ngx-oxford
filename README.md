@@ -50,7 +50,7 @@ For simple text lists:
 With truncate:
 
 ```html
-"{{ list | oxford:'and' : {trial: '...', wordCount: 5}}}"
+"{{ list | oxford:'and' : {trail: '...', wordCount: 5}}}"
 ```
 
 ### ...as a component
