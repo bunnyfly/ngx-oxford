@@ -15,4 +15,6 @@ export class AppComponent {
     ['rabbit', 'cat', 'dog'],
     ['rabbit', 'cat', 'dog', 'duck'],
   ];
+
+  longList = ['rabbit', 'cat', 'dog', 'duck', 'kangaroo', 'bear', 'wolf', 'cow', 'snake'];
 }

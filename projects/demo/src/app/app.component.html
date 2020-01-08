@@ -13,6 +13,16 @@ Output:
   <li *ngFor="let list of lists">{{ list.length }}: "{{ list | oxford:'and' }}"</li>
 </ul>
 
+Truncate a list:
+<pre>
+  "{{ '{{' }} list | oxford: 'and' : {{ '{' }} trail: 'etc', wordCount: 5 {{ '}' }} }}"
+</pre>
+
+Output:
+<div>
+  {{ longList | oxford : 'and' : {trail: 'etc', wordCount: 5} }}
+</div>
+
 <h2>Component</h2>
 Use:
 <pre>
