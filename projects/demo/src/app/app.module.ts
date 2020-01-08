@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { OxfordModule } from '../../../ngx-oxford/src/lib/oxford.module';
+import { OxfordModule } from 'ngx-oxford';
 
 import { AppComponent } from './app.component';
 
