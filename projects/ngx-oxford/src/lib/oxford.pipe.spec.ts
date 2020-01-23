@@ -52,12 +52,17 @@ describe('OxfordPipe', () => {
   });
 
   it('should truncate a list with specific conjunction', () => {
-    expect(pipe.transform(['orange', 'apple', 'mango', 'banana', 'pineapple'], 'and', {trail: 'etc', wordCount: 3}))
+    expect(pipe.transform(['orange', 'apple', 'mango', 'banana', 'pineapple'], 'and', {trail: 'etc', maxWords: 3}))
           .toBe('orange, apple, mango, etc');
   });
 
-  it('should throw if truncate word count is larger that the array length', () => {
-    expect(() => pipe.transform(['orange', 'apple', 'mango', 'banana', 'pineapple'], 'and', {trail: 'etc', wordCount: 12}))
-          .toThrowError(/larger than/);
+  it('should proceed as usual if truncate word count is larger that the array length', () => {
+    expect(
+      pipe.transform(
+        ['orange', 'apple', 'mango', 'banana', 'pineapple'],
+        'and',
+        {trail: 'etc', maxWords: 12}
+      )
+    ).toBe('orange, apple, mango, banana, pineapple, etc');
   });
 });

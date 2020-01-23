@@ -1,8 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 interface OxfordOptions {
-  trail: string;
-  wordCount: number;
+  trail?: string;
+  maxWords: number;
 }
 
 @Pipe({
@@ -30,7 +30,7 @@ export class OxfordPipe implements PipeTransform {
     let trimmedValues = values.map(OxfordPipe.trim);
 
     if (truncate) {
-      trimmedValues = trimmedValues.slice(0, truncate.wordCount);
+      trimmedValues = trimmedValues.slice(0, truncate.maxWords);
     }
 
     if (trimmedValues.length < 2) {
@@ -50,7 +50,7 @@ export class OxfordPipe implements PipeTransform {
         trimmedValues[trimmedValues.length - 1],
       )}`;
     } else {
-      result += `${trimmedValues[trimmedValues.length - 1]}, ${truncate.trail}`;
+      result += `${trimmedValues[trimmedValues.length - 1]}, ${truncate.trail || '&#x2026;'}`;
     }
 
     return result;
