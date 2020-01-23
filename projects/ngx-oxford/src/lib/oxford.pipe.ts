@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-interface TruncateOptions {
+interface OxfordOptions {
   trail: string;
   wordCount: number;
 }
@@ -16,7 +16,7 @@ export class OxfordPipe implements PipeTransform {
   transform(
     values: string[],
     conjunction = 'and',
-    truncate: TruncateOptions = null,
+    truncate: OxfordOptions = null,
     ...args: any[]
   ): any {
     if (values === null || values === undefined) {
