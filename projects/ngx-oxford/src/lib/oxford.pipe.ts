@@ -30,9 +30,6 @@ export class OxfordPipe implements PipeTransform {
     let trimmedValues = values.map(OxfordPipe.trim);
 
     if (truncate) {
-      if (truncate.wordCount > values.length) {
-        throw new RangeError('The truncated word count is larger than the amount of words');
-      }
       trimmedValues = trimmedValues.slice(0, truncate.wordCount);
     }
 
