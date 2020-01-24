@@ -49,8 +49,10 @@ export class OxfordPipe implements PipeTransform {
       result += `${OxfordPipe.trim(conjunction)} ${OxfordPipe.trim(
         trimmedValues[trimmedValues.length - 1],
       )}`;
+    } else if (truncate.maxWords > values.length) {
+      result += `${OxfordPipe.trim(conjunction)} ${trimmedValues[trimmedValues.length - 1]}`;
     } else {
-      result += `${trimmedValues[trimmedValues.length - 1]}${truncate.maxWords < values.length ? `, ${truncate.trail || '&#x2026;'}` : ''}`;
+      result += `${trimmedValues[trimmedValues.length - 1]}, ${truncate.trail || '&#x2026;'}`;
     }
 
     return result;
