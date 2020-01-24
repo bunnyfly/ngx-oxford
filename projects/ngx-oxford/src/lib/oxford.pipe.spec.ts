@@ -63,6 +63,6 @@ describe('OxfordPipe', () => {
         'and',
         {trail: 'etc', maxWords: 12}
       )
-    ).toBe('orange, apple, mango, banana, pineapple, etc');
+    ).toBe('orange, apple, mango, banana, pineapple');
   });
 });
