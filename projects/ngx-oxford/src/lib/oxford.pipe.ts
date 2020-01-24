@@ -1,5 +1,10 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
+interface OxfordOptions {
+  trail?: string;
+  maxWords: number;
+}
+
 @Pipe({
   name: 'oxford',
 })
@@ -8,7 +13,12 @@ export class OxfordPipe implements PipeTransform {
     return ('' + value).trim();
   }
 
-  transform(values: string[], conjunction = 'and', ...args: any[]): any {
+  transform(
+    values: string[],
+    conjunction = 'and',
+    truncate: OxfordOptions = null,
+    ...args: any[]
+  ): any {
     if (values === null || values === undefined) {
       throw new TypeError(`Wrong value for Oxford Pipe provided: ${values} is not an array`);
     }
@@ -17,7 +27,11 @@ export class OxfordPipe implements PipeTransform {
       throw new TypeError(`Wrong conjunction for Oxford Pipe provided: ${conjunction} is not a word`);
     }
 
-    const trimmedValues = values.map(OxfordPipe.trim);
+    let trimmedValues = values.map(OxfordPipe.trim);
+
+    if (truncate) {
+      trimmedValues = trimmedValues.slice(0, truncate.maxWords);
+    }
 
     if (trimmedValues.length < 2) {
       return trimmedValues[0] || '';
@@ -31,9 +45,16 @@ export class OxfordPipe implements PipeTransform {
     for (let i = 0; i < trimmedValues.length - 1; i++) {
       result += `${OxfordPipe.trim(trimmedValues[i])}, `;
     }
-    result += `${OxfordPipe.trim(conjunction)} ${OxfordPipe.trim(
-      trimmedValues[trimmedValues.length - 1],
-    )}`;
+    if (!truncate) {
+      result += `${OxfordPipe.trim(conjunction)} ${OxfordPipe.trim(
+        trimmedValues[trimmedValues.length - 1],
+      )}`;
+    } else if (truncate.maxWords > values.length) {
+      result += `${OxfordPipe.trim(conjunction)} ${trimmedValues[trimmedValues.length - 1]}`;
+    } else {
+      result += `${trimmedValues[trimmedValues.length - 1]}, ${truncate.trail || '&#x2026;'}`;
+    }
+
     return result;
   }
 }

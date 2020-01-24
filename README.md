@@ -47,6 +47,12 @@ For simple text lists:
 "{{ list | oxford:'and' }}"
 ```
 
+With truncate:
+
+```html
+"{{ list | oxford:'and' : {trail: '...', wordCount: 5}}}"
+```
+
 ### ...as a component
 
 For HTML, links, style, etc:
